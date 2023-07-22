@@ -5,7 +5,6 @@ ini_set('memory_limit', '-1');
 use AlazziAz\OdooXmlrpc\Contracts\OdooClientContract;
 use AlazziAz\OdooXmlrpc\Odoo;
 use AlazziAz\OdooXmlrpc\Testing\OdooClientFake;
-use Laminas\Http\Client\Adapter\Test;
 
 final class ConnectionDTO
 {
@@ -15,9 +14,8 @@ final class ConnectionDTO
         public string $db,
         public string $username,
         public string $password,
-        public bool   $realConnection = false
-    )
-    {
+        public bool $realConnection = false
+    ) {
     }
 }
 
@@ -51,7 +49,6 @@ function mockClient(mixed $fakeResponse = [], mixed $fakeCommon = 1): OdooClient
     if ($connectionDto->realConnection) {
         return getClient();
     }
-
 
     return new OdooClientFake(
         url: $connectionDto->uri,

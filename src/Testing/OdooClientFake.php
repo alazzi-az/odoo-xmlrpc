@@ -10,29 +10,34 @@ use AlazziAz\OdooXmlrpc\Enums\OperationMethods;
 use AlazziAz\OdooXmlrpc\QueryBuilder;
 use Laminas\Http\Client\Adapter\AdapterInterface;
 use Laminas\Http\Client\Adapter\Test;
-use Laminas\XmlRpc\Client;
 use Laminas\Http\Client as HttpClient;
+use Laminas\XmlRpc\Client;
 use Laminas\XmlRpc\Response;
 
 class OdooClientFake implements OdooClientContract
 {
     use Filterable;
+
     private readonly Client $commonClient;
+
     private readonly Client $objectClient;
 
     protected AdapterInterface $httpObjectAdapter;
+
     protected AdapterInterface $httpCommonAdapter;
 
     protected HttpClient $httpObjectClient;
+
     protected HttpClient $httpCommonClient;
+
     public function __construct(
-        protected mixed         $fakeObjectResponse=[],
-        protected mixed         $fakeCommonResponse = 1,
-        private readonly string $url='http:/foo',
-        private readonly string $suffix='foo',
-        private readonly string $db='foo',
-        private readonly string $username='foo',
-        private readonly string $password='foo',
+        protected mixed $fakeObjectResponse = [],
+        protected mixed $fakeCommonResponse = 1,
+        private readonly string $url = 'http:/foo',
+        private readonly string $suffix = 'foo',
+        private readonly string $db = 'foo',
+        private readonly string $username = 'foo',
+        private readonly string $password = 'foo',
     ) {
         $this->httpObjectAdapter = new Test();
         $this->httpObjectClient = new HttpClient(
@@ -193,28 +198,18 @@ class OdooClientFake implements OdooClientContract
         return $this->objectClient;
     }
 
-    /**
-     * @param mixed $nativeVars
-     */
     public function setObjectResponseTo(mixed $nativeVars): void
     {
         $response = $this->getServerResponseFor($nativeVars);
         $this->httpObjectAdapter->setResponse($response);
     }
 
-    /**
-     * @param mixed $nativeVars
-     */
     public function setCommonResponseTo(mixed $nativeVars): void
     {
         $response = $this->getServerResponseFor($nativeVars);
         $this->httpCommonAdapter->setResponse($response);
     }
 
-    /**
-     * @param mixed $nativeVars
-     * @return string
-     */
     public function getServerResponseFor(mixed $nativeVars): string
     {
         $response = new Response();
@@ -224,20 +219,15 @@ class OdooClientFake implements OdooClientContract
         return $this->makeHttpResponseFrom($xml);
     }
 
-    /**
-     * @param string $data
-     * @param int $status
-     * @param string $message
-     * @return string
-     */
     public function makeHttpResponseFrom(string $data, int $status = 200, string $message = 'OK'): string
     {
         $headers = [
             "HTTP/1.1 $status $message",
             "Status: $status",
             'Content-Type: text/xml; charset=utf-8',
-            'Content-Length: ' . strlen($data),
+            'Content-Length: '.strlen($data),
         ];
-        return implode("\r\n", $headers) . "\r\n\r\n$data\r\n\r\n";
+
+        return implode("\r\n", $headers)."\r\n\r\n$data\r\n\r\n";
     }
 }

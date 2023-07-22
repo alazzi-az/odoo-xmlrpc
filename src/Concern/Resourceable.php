@@ -4,7 +4,6 @@ namespace AlazziAz\OdooXmlrpc\Concern;
 
 use AlazziAz\OdooXmlrpc\Contracts\OdooClientContract;
 use AlazziAz\OdooXmlrpc\Contracts\OdooResource;
-use AlazziAz\OdooXmlrpc\OdooClient;
 use AlazziAz\OdooXmlrpc\QueryBuilder;
 
 /**
