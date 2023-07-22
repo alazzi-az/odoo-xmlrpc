@@ -1,14 +1,14 @@
 blank_issues_enabled: false
 contact_links:
   - name: Ask a question
-    url: https://github.com/alazzi-az/laravel-tamara/discussions/new?category=q-a
+    url: https://github.com/alazzi-az/odoo-xmlrpc/discussions/new?category=q-a
     about: Ask the community for help
   - name: Request a feature
-    url: https://github.com/alazzi-az/laravel-tamara/discussions/new?category=ideas
+    url: https://github.com/alazzi-az/odoo-xmlrpc/discussions/new?category=ideas
     about: Share ideas for new features
   - name: Report a security issue
-    url: https://github.com/alazzi-az/laravel-tamara/security/policy
+    url: https://github.com/alazzi-az/odoo-xmlrpc/security/policy
     about: Learn how to notify us for sensitive bugs
   - name: Report a bug
-    url: https://github.com/alazzi-az/laravel-tamara/issues/new
+    url: https://github.com/alazzi-az/odoo-xmlrpc/issues/new
     about: Report a reproducable bug

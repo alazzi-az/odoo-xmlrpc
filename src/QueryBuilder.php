@@ -2,6 +2,8 @@
 
 namespace AlazziAz\OdooXmlrpc;
 
+use AlazziAz\OdooXmlrpc\Contracts\OdooClientContract;
+
 class QueryBuilder
 {
     public array $filters = [];
@@ -14,7 +16,7 @@ class QueryBuilder
 
     public function __construct(
         protected string $model,
-        protected OdooClient $odooClient,
+        protected OdooClientContract $odooClient,
     ) {
     }
 
