@@ -24,8 +24,7 @@
     ],
     "require": {
         "php": "^8.1.0",
-        "laminas/laminas-xmlrpc": "^2.16",
-        "pestphp/pest-plugin-mock": "2.x.dev"
+        "laminas/laminas-xmlrpc": "^2.16"
     },
     "require-dev": {
         "laravel/pint": "^1.6",
