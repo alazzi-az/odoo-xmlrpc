@@ -12,6 +12,9 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
+      - name: Checkout branch
+        run: git checkout ${{ github.head_ref }}
+
       - name: Fix PHP code style issues
         uses: aglipanci/laravel-pint-action@0.1.0
 
