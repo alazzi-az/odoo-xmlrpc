@@ -29,5 +29,8 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
+    },
+    "scripts": {
+        "test:unit": "pest --colors=always"
     }
 }
