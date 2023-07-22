@@ -1,6 +1,15 @@
 {
     "name": "alazzi-az/odoo-xmlrpc",
     "description": "PHP package that provides a simple and easy-to-use interface for interacting with the Odoo XML-RPC API",
+    "keywords": [
+        "alazzi-az",
+        "odoo-php",
+        "odoo",
+        "odoo-xmlrpc",
+        "php-xmlrpc"
+    ],
+    "homepage": "https://github.com/alazzi-az/odoo-xmlrpc",
+    "license": "MIT",
     "type": "library",
     "autoload": {
         "psr-4": {
