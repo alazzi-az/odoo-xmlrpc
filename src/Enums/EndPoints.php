@@ -9,10 +9,9 @@ enum EndPoints: string
     case Report = 'report';
 
     public function getFullUrl(
-        string $url ,
+        string $url,
         string $suffix
-    ): string
-    {
+    ): string {
         return $url.'/'.$suffix.'/'.$this->value;
     }
 }

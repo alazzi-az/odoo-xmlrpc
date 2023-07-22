@@ -1,8 +1,10 @@
 <?php
+
 use AlazziAz\OdooXmlrpc\Concern\Filterable;
 
 it('prepares filters correctly', function () {
-    $filterable = new class {
+    $filterable = new class
+    {
         use Filterable;
 
         public function testPrepareFilters(array $filters): array
@@ -27,7 +29,8 @@ it('prepares filters correctly', function () {
 });
 
 it('checks if operator is valid', function () {
-    $filterable = new class {
+    $filterable = new class
+    {
         use Filterable;
 
         public function testIsOperator(string $operator): bool
@@ -44,7 +47,8 @@ it('checks if operator is valid', function () {
 });
 
 it('prepares fields correctly', function () {
-    $filterable = new class {
+    $filterable = new class
+    {
         use Filterable;
 
         public function testPrepareFields(array $fields): array

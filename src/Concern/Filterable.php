@@ -9,11 +9,12 @@ trait Filterable
         $preparedFilters = [];
         foreach ($filters as $key => $value) {
             if (is_array($value)) {
-                if (count($value) === 2 && (!is_int($key) && !$this->isOperator($key)))
+                if (count($value) === 2 && (! is_int($key) && ! $this->isOperator($key))) {
                     $preparedFilters[] = [$key, ...$value];
-                else
+                } else {
                     $preparedFilters[] = $value;
-            }elseif ($this->isOperator($value)){
+                }
+            } elseif ($this->isOperator($value)) {
                 $preparedFilters[] = $value;
             } else {
                 $preparedFilters[] = [$key, '=', $value];

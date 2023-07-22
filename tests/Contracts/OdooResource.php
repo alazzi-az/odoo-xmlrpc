@@ -3,7 +3,8 @@
 use AlazziAz\OdooXmlrpc\Contracts\OdooResource;
 
 it('implements the OdooResource interface', function () {
-    $testClass = new class implements OdooResource {
+    $testClass = new class implements OdooResource
+    {
         public static function getModelName(): string
         {
             return 'res.partner';
@@ -19,7 +20,8 @@ it('implements the OdooResource interface', function () {
 });
 
 it('returns the correct model name', function () {
-    $testClass = new class implements OdooResource {
+    $testClass = new class implements OdooResource
+    {
         public static function getModelName(): string
         {
             return 'res.partner';
@@ -37,7 +39,8 @@ it('returns the correct model name', function () {
 });
 
 it('returns the correct model fields', function () {
-    $testClass = new class implements OdooResource {
+    $testClass = new class implements OdooResource
+    {
         public static function getModelName(): string
         {
             return 'res.partner';

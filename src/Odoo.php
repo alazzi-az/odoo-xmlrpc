@@ -11,7 +11,7 @@ class Odoo
     /**
      * Creates a new Odoo Client instance.
      */
-    public static function client(string $url,string $suffix, string $db, string $username, string $password): OdooClientContract
+    public static function client(string $url, string $suffix, string $db, string $username, string $password): OdooClientContract
     {
 
         $commonClient = new Client(EndPoints::Common->getFullUrl($url, $suffix));

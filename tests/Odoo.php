@@ -15,4 +15,3 @@ it('may create a client', function () {
 
     expect($odoo)->toBeInstanceOf(OdooClient::class);
 });
-

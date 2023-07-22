@@ -1,5 +1,5 @@
 <?php
-use Pest\TestSuite;
+
 use AlazziAz\OdooXmlrpc\Enums\OperationMethods;
 
 it('returns the correct operation method value', function () {

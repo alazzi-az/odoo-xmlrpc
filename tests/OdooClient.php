@@ -25,7 +25,7 @@ it('call method works', function () {
     $odoo = mockClient();
 
     $result = $odoo->call([
-        'res.partner', 'search_read', [], ['limit' => 5]
+        'res.partner', 'search_read', [], ['limit' => 5],
     ]);
     expect($result)->toBeArray();
 });
@@ -49,6 +49,7 @@ test('search method works', function () {
     $result = $odoo->search(model: 'res.partner', filters: []);
 
     expect($result)->toBeArray();
+
     return $result;
 });
 
@@ -60,8 +61,6 @@ it('read method works', function ($searchResult) {
     expect($result)->toBeArray();
 })->depends('search method works');
 
-
-
 test('create method works', function () {
     $odoo = mockClient(5);
 
@@ -70,6 +69,7 @@ test('create method works', function () {
         'email' => 'test@test.com']);
 
     expect($result)->toBeInt();
+
     return $result;
 });
 
@@ -79,16 +79,15 @@ it('update method works', function ($createResult) {
         'name' => 'Test Partner',
         'email' => 'test@test.com']);
 
-    expect($result)->toBeIn([true,false,1,0]);
+    expect($result)->toBeIn([true, false, 1, 0]);
 })->depends('create method works');
-
 
 it('delete method works', function ($createResult) {
     $odoo = mockClient(true);
 
     $result = $odoo->delete('res.partner', [$createResult]);
 
-    expect($result)->toBeIn([true,false,1,0]);
+    expect($result)->toBeIn([true, false, 1, 0]);
 })->depends('create method works');
 
 it('count method works', function () {
@@ -108,7 +107,7 @@ it('getUid method works', function () {
 });
 
 it('fetch getVersion method ', function () {
-    $odoo = mockClient([],'1.1.1');
+    $odoo = mockClient([], '1.1.1');
 
     $result = $odoo->getVersion();
 
@@ -116,4 +115,3 @@ it('fetch getVersion method ', function () {
 
     expect($result)->toBeString($result);
 });
-

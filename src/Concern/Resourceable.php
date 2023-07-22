@@ -1,5 +1,7 @@
 <?php
+
 namespace AlazziAz\OdooXmlrpc\Concern;
+
 use AlazziAz\OdooXmlrpc\Contracts\OdooResource;
 use AlazziAz\OdooXmlrpc\OdooClient;
 use AlazziAz\OdooXmlrpc\QueryBuilder;
@@ -10,7 +12,8 @@ use AlazziAz\OdooXmlrpc\QueryBuilder;
 trait Resourceable
 {
     protected static OdooClient $odooClient;
-    public static function boot(OdooClient $odooClient):void
+
+    public static function boot(OdooClient $odooClient): void
     {
         self::$odooClient = $odooClient;
     }

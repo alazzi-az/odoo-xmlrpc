@@ -1,5 +1,5 @@
 <?php
-use Pest\TestSuite;
+
 use AlazziAz\OdooXmlrpc\Enums\EndPoints;
 
 it('returns the full URL', function () {
@@ -14,7 +14,7 @@ it('returns the full URL', function () {
     $objectUrl = $objectEndpoint->getFullUrl($url, $suffix);
     $reportUrl = $reportEndpoint->getFullUrl($url, $suffix);
 
-    expect($commonUrl)->toBe( $url.'/'.$suffix.'/'.$commonEndpoint->value);
+    expect($commonUrl)->toBe($url.'/'.$suffix.'/'.$commonEndpoint->value);
     expect($objectUrl)->toBe($url.'/'.$suffix.'/'.$objectEndpoint->value);
     expect($reportUrl)->toBe($url.'/'.$suffix.'/'.$reportEndpoint->value);
 });

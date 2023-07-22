@@ -13,12 +13,10 @@ class QueryBuilder
     public ?int $offset = null;
 
     public function __construct(
-        protected string     $model,
+        protected string $model,
         protected OdooClient $odooClient,
-    )
-    {
+    ) {
     }
-
 
     public function where(string $field, string $operator, mixed $value): static
     {
@@ -37,15 +35,17 @@ class QueryBuilder
 
     private function addOperator(string $operator): void
     {
-//        add operator to first element of filters array
+        //        add operator to first element of filters array
         if (empty($this->filters)) {
             $this->filters[] = $operator;
+
             return;
         }
 
         $firstElement = $this->filters[0];
         if (is_array($firstElement)) {
             $this->filters = array_merge([$operator], $this->filters);
+
             return;
         }
     }
@@ -94,7 +94,6 @@ class QueryBuilder
         return $this;
     }
 
-
     public function select(...$fields): static
     {
         $this->fields = $fields;
@@ -105,6 +104,7 @@ class QueryBuilder
     public function first(): array
     {
         $this->limit(1);
+
         return $this->get()[0];
     }
 
@@ -112,6 +112,7 @@ class QueryBuilder
     {
         $this->limit = $limit;
         $this->offset = $offset;
+
         return $this;
     }
 
@@ -130,6 +131,7 @@ class QueryBuilder
         $this->filters[] = ['id', '=', $id];
         $this->limit(1);
         $result = $this->get();
+
         return $result[0] ?? $result;
     }
 
@@ -152,6 +154,4 @@ class QueryBuilder
     {
         return $this->odooClient->delete($this->model, $this->ids());
     }
-
-
 }

@@ -1,5 +1,5 @@
 <?php
-use Pest\TestSuite;
+
 use AlazziAz\OdooXmlrpc\DTO\CallParamsDTO;
 use AlazziAz\OdooXmlrpc\Enums\OperationMethods;
 
@@ -40,5 +40,3 @@ it('converts the CallParamsDTO instance to an array', function () {
 
     expect($callParams->toArray())->toBe($expectedArray);
 });
-
-

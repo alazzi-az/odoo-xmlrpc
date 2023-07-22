@@ -2,8 +2,6 @@
 
 namespace AlazziAz\OdooXmlrpc;
 
-
-
 use AlazziAz\OdooXmlrpc\Concern\Filterable;
 use AlazziAz\OdooXmlrpc\Contracts\OdooClientContract;
 use AlazziAz\OdooXmlrpc\DTO\CallParamsDTO;
@@ -20,15 +18,13 @@ class OdooClient implements OdooClientContract
         private readonly string $db,
         private readonly string $username,
         private readonly string $password,
-    )
-    {
+    ) {
     }
 
-    public function get(string $model, array $filters = [], array $fields = [], ?int $limit = null, ?int $offset = null): array
+    public function get(string $model, array $filters = [], array $fields = [], int $limit = null, int $offset = null): array
     {
         $filters = $this->prepareFilters($filters);
         $fields = $this->prepareFields($fields);
-
 
         $params = new CallParamsDTO(
             model: $model,
@@ -39,7 +35,6 @@ class OdooClient implements OdooClientContract
             offset: $offset,
         );
 
-
         return $this->call($params->toArray());
 
     }
@@ -47,14 +42,11 @@ class OdooClient implements OdooClientContract
     public function call(array $params): array|int|null
     {
 
-
         $params = array_merge([
             $this->db,
             $this->getUid(),
             $this->password,
         ], $params);
-
-
 
         return $this->objectClient->call('execute_kw', $params);
     }
@@ -83,8 +75,6 @@ class OdooClient implements OdooClientContract
             fields: $fields,
         );
 
-
-
         return $this->call($params->toArray());
     }
 
@@ -98,8 +88,9 @@ class OdooClient implements OdooClientContract
             args: [$filters],
         );
 
-//        the following steps to make test work because we need to mock integer value
+        //        the following steps to make test work because we need to mock integer value
         $result = $this->call($params->toArray());
+
         return is_array($result) ? $result : [$result];
     }
 
