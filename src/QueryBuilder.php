@@ -13,6 +13,8 @@ class QueryBuilder
     public ?int $limit = null;
 
     public ?int $offset = null;
+    
+    public ?string $order = null;
 
     public function __construct(
         protected string $model,
@@ -118,9 +120,16 @@ class QueryBuilder
         return $this;
     }
 
+    public function order(string $field): static
+    {
+        $this->order = $field;
+    
+        return $this;
+    }
+
     public function get(): array
     {
-        return $this->odooClient->get($this->model, $this->filters, $this->fields, $this->limit, $this->offset);
+        return $this->odooClient->get($this->model, $this->filters, $this->fields, $this->limit, $this->offset, $this->order);
     }
 
     public function count(): int
