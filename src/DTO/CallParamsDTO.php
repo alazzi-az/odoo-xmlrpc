@@ -16,6 +16,7 @@ class CallParamsDTO
         public ?array $fields = null,
         public ?int $limit = null,
         public ?int $offset = null,
+        public ?string $order = null,
     ) {
     }
 
@@ -45,6 +46,10 @@ class CallParamsDTO
 
         if (! is_null($this->offset)) {
             $args['offset'] = $this->offset;
+        }
+        
+        if (! is_null($this->order)) {
+            $args['order'] = $this->order;
         }
 
         return $args;
