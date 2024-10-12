@@ -103,6 +103,9 @@ $version = $client->getVersion();
 //  limit the number of records returned by the query.
    $result = $queryBuilder->limit(5)->get();
 
+//  sort the records returned by the query.
+   $result = $queryBuilder->order('name')->get();
+
 // retrieve the records that match the query. It returns an array of records
    $records = $queryBuilder->where('name', 'ilike', 'johndoe')
                     ->get();
