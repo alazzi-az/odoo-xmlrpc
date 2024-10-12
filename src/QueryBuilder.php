@@ -13,14 +13,13 @@ class QueryBuilder
     public ?int $limit = null;
 
     public ?int $offset = null;
-    
+
     public ?string $order = null;
 
     public function __construct(
         protected string $model,
         protected OdooClientContract $odooClient,
-    ) {
-    }
+    ) {}
 
     public function where(string $field, string $operator, mixed $value): static
     {
@@ -123,7 +122,7 @@ class QueryBuilder
     public function order(string $field): static
     {
         $this->order = $field;
-    
+
         return $this;
     }
 

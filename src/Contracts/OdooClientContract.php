@@ -7,7 +7,7 @@ use Laminas\XmlRpc\Client;
 
 interface OdooClientContract
 {
-    public function get(string $model, array $filters = [], array $fields = [], int $limit = null, int $offset = null): array;
+    public function get(string $model, array $filters = [], array $fields = [], ?int $limit = null, ?int $offset = null): array;
 
     public function call(array $params): array|int|null;
 

@@ -18,10 +18,9 @@ class OdooClient implements OdooClientContract
         private readonly string $db,
         private readonly string $username,
         private readonly string $password,
-    ) {
-    }
+    ) {}
 
-    public function get(string $model, array $filters = [], array $fields = [], int $limit = null, int $offset = null, string $order = null): array
+    public function get(string $model, array $filters = [], array $fields = [], ?int $limit = null, ?int $offset = null, ?string $order = null): array
     {
         $filters = $this->prepareFilters($filters);
         $fields = $this->prepareFields($fields);

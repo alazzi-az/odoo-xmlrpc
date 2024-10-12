@@ -15,8 +15,7 @@ final class ConnectionDTO
         public string $username,
         public string $password,
         public bool $realConnection = false
-    ) {
-    }
+    ) {}
 }
 
 function getConnectionDTO(): ConnectionDTO

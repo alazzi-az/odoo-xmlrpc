@@ -39,13 +39,13 @@ class OdooClientFake implements OdooClientContract
         private readonly string $username = 'foo',
         private readonly string $password = 'foo',
     ) {
-        $this->httpObjectAdapter = new Test();
+        $this->httpObjectAdapter = new Test;
         $this->httpObjectClient = new HttpClient(
             $url,
             ['adapter' => $this->httpObjectAdapter]
         );
 
-        $this->httpCommonAdapter = new Test();
+        $this->httpCommonAdapter = new Test;
         $this->httpCommonClient = new HttpClient(
             $url,
             ['adapter' => $this->httpCommonAdapter]
@@ -59,7 +59,7 @@ class OdooClientFake implements OdooClientContract
 
     }
 
-    public function get(string $model, array $filters = [], array $fields = [], int $limit = null, int $offset = null): array
+    public function get(string $model, array $filters = [], array $fields = [], ?int $limit = null, ?int $offset = null): array
     {
         $filters = $this->prepareFilters($filters);
         $fields = $this->prepareFields($fields);
@@ -212,7 +212,7 @@ class OdooClientFake implements OdooClientContract
 
     public function getServerResponseFor(mixed $nativeVars): string
     {
-        $response = new Response();
+        $response = new Response;
         $response->setReturnValue($nativeVars);
         $xml = $response->saveXml();
 

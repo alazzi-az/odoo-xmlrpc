@@ -7,7 +7,7 @@ use AlazziAz\OdooXmlrpc\Enums\OperationMethods;
 class CallParamsDTO
 {
     /**
-     * @param  array  $args represents the arguments of the method or  filters
+     * @param  array  $args  represents the arguments of the method or  filters
      */
     public function __construct(
         public string $model,
@@ -17,8 +17,7 @@ class CallParamsDTO
         public ?int $limit = null,
         public ?int $offset = null,
         public ?string $order = null,
-    ) {
-    }
+    ) {}
 
     public function toArray(): array
     {
@@ -47,7 +46,7 @@ class CallParamsDTO
         if (! is_null($this->offset)) {
             $args['offset'] = $this->offset;
         }
-        
+
         if (! is_null($this->order)) {
             $args['order'] = $this->order;
         }
