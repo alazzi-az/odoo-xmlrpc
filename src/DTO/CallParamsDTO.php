@@ -17,6 +17,7 @@ class CallParamsDTO
         public ?int $limit = null,
         public ?int $offset = null,
         public ?string $order = null,
+        public ?array $context = null,
     ) {}
 
     public function toArray(): array
@@ -49,6 +50,10 @@ class CallParamsDTO
 
         if (! is_null($this->order)) {
             $args['order'] = $this->order;
+        }
+
+        if (! is_null($this->context)) {
+            $args['context'] = $this->context;
         }
 
         return $args;

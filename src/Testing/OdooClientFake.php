@@ -56,10 +56,9 @@ class OdooClientFake implements OdooClientContract
 
         $this->setObjectResponseTo($this->fakeObjectResponse);
         $this->setCommonResponseTo($this->fakeCommonResponse);
-
     }
 
-    public function get(string $model, array $filters = [], array $fields = [], ?int $limit = null, ?int $offset = null): array
+    public function get(string $model, array $filters = [], array $fields = [], ?int $limit = null, ?int $offset = null, ?string $order = null, ?array $context = []): array
     {
         $filters = $this->prepareFilters($filters);
         $fields = $this->prepareFields($fields);
@@ -71,10 +70,11 @@ class OdooClientFake implements OdooClientContract
             fields: $fields,
             limit: $limit,
             offset: $offset,
+            order: $order,
+            context: $context
         );
 
         return $this->call($params->toArray());
-
     }
 
     public function call(array $params): array|int|null
@@ -225,9 +225,9 @@ class OdooClientFake implements OdooClientContract
             "HTTP/1.1 $status $message",
             "Status: $status",
             'Content-Type: text/xml; charset=utf-8',
-            'Content-Length: '.strlen($data),
+            'Content-Length: ' . strlen($data),
         ];
 
-        return implode("\r\n", $headers)."\r\n\r\n$data\r\n\r\n";
+        return implode("\r\n", $headers) . "\r\n\r\n$data\r\n\r\n";
     }
 }
