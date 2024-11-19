@@ -16,6 +16,8 @@ class QueryBuilder
 
     public ?string $order = null;
 
+    public ?array $context = [];
+
     public function __construct(
         protected string $model,
         protected OdooClientContract $odooClient,
@@ -126,9 +128,16 @@ class QueryBuilder
         return $this;
     }
 
+    public function context(array $field): static
+    {
+        $this->context = $field;
+
+        return $this;
+    }
+
     public function get(): array
     {
-        return $this->odooClient->get($this->model, $this->filters, $this->fields, $this->limit, $this->offset, $this->order);
+        return $this->odooClient->get($this->model, $this->filters, $this->fields, $this->limit, $this->offset, $this->order, $this->context);
     }
 
     public function count(): int

@@ -20,7 +20,7 @@ class OdooClient implements OdooClientContract
         private readonly string $password,
     ) {}
 
-    public function get(string $model, array $filters = [], array $fields = [], ?int $limit = null, ?int $offset = null, ?string $order = null): array
+    public function get(string $model, array $filters = [], array $fields = [], ?int $limit = null, ?int $offset = null, ?string $order = null, ?array $context = []): array
     {
         $filters = $this->prepareFilters($filters);
         $fields = $this->prepareFields($fields);
@@ -32,11 +32,11 @@ class OdooClient implements OdooClientContract
             fields: $fields,
             limit: $limit,
             offset: $offset,
-            order: $order
+            order: $order,
+            context: $context
         );
 
         return $this->call($params->toArray());
-
     }
 
     public function call(array $params): array|int|null
