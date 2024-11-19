@@ -225,9 +225,9 @@ class OdooClientFake implements OdooClientContract
             "HTTP/1.1 $status $message",
             "Status: $status",
             'Content-Type: text/xml; charset=utf-8',
-            'Content-Length: ' . strlen($data),
+            'Content-Length: '.strlen($data),
         ];
 
-        return implode("\r\n", $headers) . "\r\n\r\n$data\r\n\r\n";
+        return implode("\r\n", $headers)."\r\n\r\n$data\r\n\r\n";
     }
 }
