@@ -140,6 +140,16 @@ class OdooClient implements OdooClientContract
         return $this->call($params->toArray());
     }
 
+    public function fields(string $model): array
+    {
+        $params = new CallParamsDTO(
+            model: $model,
+            method: OperationMethods::Fields
+        );
+
+        return $this->call($params->toArray());
+    }
+
     public function model(string $model): QueryBuilder
     {
         return new QueryBuilder($model, $this);
