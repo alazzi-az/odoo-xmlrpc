@@ -18,4 +18,5 @@ enum OperationMethods: string
     case CreatePayments = 'create_payments';
     case ActionCreatePayments = 'action_create_payments';
     case ActionInvoicePaid = 'action_invoice_paid';
+    case Fields = 'fields_get';
 }
