@@ -8,9 +8,9 @@ use AlazziAz\OdooXmlrpc\DTO\CallParamsDTO;
 use AlazziAz\OdooXmlrpc\Enums\EndPoints;
 use AlazziAz\OdooXmlrpc\Enums\OperationMethods;
 use AlazziAz\OdooXmlrpc\QueryBuilder;
+use Laminas\Http\Client as HttpClient;
 use Laminas\Http\Client\Adapter\AdapterInterface;
 use Laminas\Http\Client\Adapter\Test;
-use Laminas\Http\Client as HttpClient;
 use Laminas\XmlRpc\Client;
 use Laminas\XmlRpc\Response;
 
@@ -143,12 +143,13 @@ class OdooClientFake implements OdooClientContract
         return $this->call($params->toArray());
     }
 
-    public function update(string $model, int|array $ids, array $data): ?int
+    public function update(string $model, int|array $ids, array $data, array $context = []): ?int
     {
         $params = new CallParamsDTO(
             model: $model,
             method: OperationMethods::Write,
             args: [$ids, $data],
+            context: $context,
         );
 
         return $this->call($params->toArray());

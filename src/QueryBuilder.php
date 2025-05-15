@@ -161,7 +161,7 @@ class QueryBuilder
 
     public function update(array $data): ?int
     {
-        return $this->odooClient->update($this->model, $this->ids(), $data);
+        return $this->odooClient->update($this->model, $this->ids(), $data, $this->context);
     }
 
     public function ids(): ?array
