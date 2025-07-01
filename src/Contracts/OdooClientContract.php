@@ -19,7 +19,7 @@ interface OdooClientContract
 
     public function create(string $model, array $data): int|array;
 
-    public function update(string $model, int|array $ids, array $data): ?int;
+    public function update(string $model, int|array $ids, array $data, array $context = []): ?int;
 
     public function delete(string $model, int|array $ids): ?int;
 

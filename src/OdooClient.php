@@ -105,12 +105,13 @@ class OdooClient implements OdooClientContract
         return $this->call($params->toArray());
     }
 
-    public function update(string $model, int|array $ids, array $data): ?int
+    public function update(string $model, int|array $ids, array $data, array $context = []): ?int
     {
         $params = new CallParamsDTO(
             model: $model,
             method: OperationMethods::Write,
             args: [$ids, $data],
+            context: $context,
         );
 
         return $this->call($params->toArray());
