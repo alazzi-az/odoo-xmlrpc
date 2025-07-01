@@ -8,9 +8,9 @@ use AlazziAz\OdooXmlrpc\DTO\CallParamsDTO;
 use AlazziAz\OdooXmlrpc\Enums\EndPoints;
 use AlazziAz\OdooXmlrpc\Enums\OperationMethods;
 use AlazziAz\OdooXmlrpc\QueryBuilder;
-use Laminas\Http\Client as HttpClient;
 use Laminas\Http\Client\Adapter\AdapterInterface;
 use Laminas\Http\Client\Adapter\Test;
+use Laminas\Http\Client as HttpClient;
 use Laminas\XmlRpc\Client;
 use Laminas\XmlRpc\Response;
 
